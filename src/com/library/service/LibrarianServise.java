@@ -13,7 +13,7 @@ public class LibrarianServise {
 	}
 
 	public void addLibrarian(String fname, String lname, String email, String password) {
-		User b = User.builder().firstName(fname).lastName(lname).email(email).password(password).build();
+		User b = User.builder().firstName(fname).lastName(lname).email(email).password(password).roleId(1).build();
 		this.userDao.save(b);
 
 	}

@@ -1,6 +1,9 @@
 package com.library.controller;
 
 import java.io.IOException;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,26 +35,24 @@ public class LibrarianController extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		String arr[] = request.getRequestURI().split("/");
 		System.out.println("current url is : " + request.getRequestURI());
-		if (arr.length != 4) {
-			return;
-		}
-
-		String action = arr[arr.length - 1];
-		switch (action) {
-		case "add":
-			String firstName = request.getParameter("firstname");
-			String lastName = request.getParameter("lastname");
-			String email = request.getParameter("email");
-			String password = request.getParameter("password");
-
-			librarianservise.addLibrarian(firstName, lastName, email, password);
-			break;
-		case "delete":
-
-			break;
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + action);
-		}
+		
+//		
+//		String action = arr[arr.length - 1];
+//		switch (action) {
+//		case "add":
+//			String firstName = request.getParameter("firstname");
+//			String lastName = request.getParameter("lastname");
+//			String email = request.getParameter("email");
+//			String password = request.getParameter("password");
+//
+//			librarianservise.addLibrarian(firstName, lastName, email, password)				
+//		
+//			break;
+//		default:
+			RequestDispatcher dis =  request.getRequestDispatcher("user-list.jsp");
+			dis.forward(request, response);
+//			throw new IllegalArgumentException("Unexpected value: " + action);
+//		}
 
 	}
 
