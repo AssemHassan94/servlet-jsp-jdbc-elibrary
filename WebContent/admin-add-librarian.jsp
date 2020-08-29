@@ -7,8 +7,12 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="description" content="" />
-   
-    <title>Add Book</title>
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Jekyll v4.1.1" />
+    <title>Add Librarian</title>
 
     <link
       rel="canonical"
@@ -35,7 +39,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="css/add-book.css" rel="stylesheet" />
+    <link href="css/admin-add-librarian.css" rel="stylesheet" />
   </head>
   <body>
     <div>
@@ -74,35 +78,34 @@
         </div>
       </nav>
     </div>
-    <form action="/AddBook" method="GET">
-      <div class="container form-add">
-        <h1 class="h3 mb-2 font-weight-normal" style="color: #090e47">
-          Add Book
-        </h1>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Book Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="Book title"
-            name="booktitle"
-          />
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Author</label>
-          <input
-            type="text"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="author name"
-            name="authorname"
-          />
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-          Submit
-        </button>
-      </div>
-    </form>
-  </body>
+	<form action="librarian/add" method="get">
+		<div class="container form-add">
+			<h1 class="h3 mb-2 font-weight-normal" style="color: #090e47">
+				Add Librarian</h1>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">First Name</label> <input
+					type="text" class="form-control" id="exampleFormControlInput1"
+					placeholder="joe" name="firstname" />
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Last Name</label> <input
+					type="text" class="form-control" id="exampleFormControlInput1"
+					placeholder="doe" name="lastname" />
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Email</label> <input
+					type="email" class="form-control" id="exampleFormControlInput1"
+					placeholder="name@example.com" name="email" />
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label> <input
+					type="password" class="form-control" id="exampleInputPassword1"
+					placeholder="Password" name="password" />
+			</div>
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit">
+				submit</button>
+		</div>
+	</form>
+</body>
 </html>

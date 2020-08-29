@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Builder
 public class BookDao implements Dao<Book> {
     private PreparedStatement statement;
 
@@ -113,4 +112,6 @@ public class BookDao implements Dao<Book> {
 
         return -1;
     }
+
+	
 }
