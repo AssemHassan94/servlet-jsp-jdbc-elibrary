@@ -1,0 +1,7 @@
+#mysql DB properties
+
+DB_DRIVER_CLASS=com.mysql.jdbc.Driver
+DB_URL=
+DB_USERNAME=
+DB_PASSWORD=
+
