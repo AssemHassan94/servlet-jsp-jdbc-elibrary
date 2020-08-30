@@ -41,7 +41,7 @@
     <div class="container-fluid container-background text-center">
       <div class="row">
         <div class="col-4 mx-auto" style="margin-top: 15rem">
-          <form class="form-signin" action="login" method="POST">
+          <form class="form-signin" action="LoginServlet" method="POST">
             <img
               class="mb-4"
               src="img/library.png"
