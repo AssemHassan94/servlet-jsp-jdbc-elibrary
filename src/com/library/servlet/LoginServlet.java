@@ -39,13 +39,33 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
-		if (authenticationService.isAuthenticated(email, password)) {
+		String userValidate = authenticationService.isAuthenticated(email, password);
+		if (userValidate.equals("Admin_Role")) {
 			Cookie cookie = authenticationService.addSession(request, email);
 			response.addCookie(cookie);
-			
+
+			RequestDispatcher reqd = request.getRequestDispatcher("jsp/homeAdmin.jsp");
+			reqd.forward(request, response);
+
+		} else if (userValidate.equals("Librarian_Role")) {
+			Cookie cookie = authenticationService.addSession(request, email);
+			response.addCookie(cookie);
+
+			RequestDispatcher reqd = request.getRequestDispatcher("jsp/homeLibrarian.jsp");
+			reqd.forward(request, response);
+
+		} else if (userValidate.equals("User_Role")) {
+			Cookie cookie = authenticationService.addSession(request, email);
+			response.addCookie(cookie);
+
 			RequestDispatcher reqd = request.getRequestDispatcher("jsp/main.jsp");
 			reqd.forward(request, response);
 
+		} else {
+			System.out.println("Error message = " + userValidate);
+			request.setAttribute("errMessage", userValidate);
+
+			request.getRequestDispatcher("index.jsp").include(request, response);
 		}
 	}
 

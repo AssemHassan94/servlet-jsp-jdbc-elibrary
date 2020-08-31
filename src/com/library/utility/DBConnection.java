@@ -21,7 +21,7 @@ public class DBConnection {
             try {
                 Properties properties = new Properties();
 
-                FileInputStream propertiesFile = new FileInputStream("C:/Users/assem/eclipse-workspace/ELibrary/db.properties");
+                FileInputStream propertiesFile = new FileInputStream("D:\\One drive\\OneDrive\\Desktop\\eLibrary\\db.properties");
                 properties.load(propertiesFile);
                 Class.forName(properties.getProperty("DB_DRIVER_CLASS"));
                 connection = DriverManager.getConnection(properties.getProperty("DB_URL"), properties.getProperty("DB_USERNAME"), properties.getProperty("DB_PASSWORD"));
