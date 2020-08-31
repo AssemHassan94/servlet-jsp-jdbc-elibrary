@@ -28,7 +28,6 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -41,9 +40,10 @@ public class LoginServlet extends HttpServlet {
 		if (authenticationService.isAuthenticated(email, password)) {
 			Cookie cookie = authenticationService.addSession(request, email);
 			response.addCookie(cookie);
-			
-
 			response.sendRedirect("/elibrary/home");
+		}else {
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
+			rd.include(request, response);
 
 		}
 	}
