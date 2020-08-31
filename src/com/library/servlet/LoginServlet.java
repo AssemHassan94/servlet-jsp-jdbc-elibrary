@@ -9,7 +9,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.library.service.AuthenticationService;
 
@@ -43,8 +42,9 @@ public class LoginServlet extends HttpServlet {
 			Cookie cookie = authenticationService.addSession(request, email);
 			response.addCookie(cookie);
 			
-			RequestDispatcher reqd = request.getRequestDispatcher("jsp/main.jsp");
-			reqd.forward(request, response);
+
+
+			response.sendRedirect("/elibrary/home");
 
 		}
 	}
