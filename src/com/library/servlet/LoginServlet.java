@@ -43,7 +43,6 @@ public class LoginServlet extends HttpServlet {
 			response.addCookie(cookie);
 			
 
-
 			response.sendRedirect("/elibrary/home");
 
 		}

@@ -18,7 +18,7 @@
 	href="https://getbootstrap.com/docs/4.5/examples/navbar-static/" />
 
 <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="../css/bootstrap.min.css" rel="stylesheet" />
 
 <style>
 .bd-placeholder-img {
@@ -37,7 +37,7 @@
 }
 </style>
 <!-- Custom styles for this template -->
-<link href="css/librarian.css" rel="stylesheet" />
+<link href="../css/librarian.css rel="stylesheet" />
 </head>
 <body>
 	username => <%= request.getAttribute("email1")%>

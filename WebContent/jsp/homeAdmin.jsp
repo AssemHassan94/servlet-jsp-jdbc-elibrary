@@ -16,7 +16,7 @@
     />
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
 
     <style>
       .bd-placeholder-img {
@@ -35,13 +35,13 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="css/admin.css" rel="stylesheet" />
+    <link href="./css/admin.css" rel="stylesheet" />
   </head>
   <body>
     <div class="container-background">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <a class="navbar-brand" href="#"
-          ><img src="img/library.png" width="50" height="50" alt="logo" />
+          ><img src="./img/library.png" width="50" height="50" alt="logo" />
         </a>
         <button
           class="navbar-toggler"
