@@ -2,6 +2,7 @@ package com.library.service;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,33 +33,21 @@ public class AuthenticationService {
 //		return false;
 	}
 
-	public Cookie addSession(HttpServletRequest request, String email) {
+	public void addSession(HttpServletRequest request, String email) {
 		HttpSession session = request.getSession();
-		session.setMaxInactiveInterval(30 * 60);
-		Cookie emailCookie = new Cookie(COOKIE_NAME, email);
-		emailCookie.setMaxAge(30 * 60);
-		return emailCookie;
+
+		session.setAttribute(COOKIE_NAME, email);
+
+//		session.setMaxInactiveInterval(30 * 60);
+//		Cookie emailCookie = new Cookie(COOKIE_NAME, email);
+//		emailCookie.setMaxAge(30 * 60);
 	}
 
 	public void removeSession(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
-		//JSESSIONID cookie is created/sent when session is created
-		//Session is created when your code calls request.getSession() or request.getSession(true) for the first time
-		//request.getSession(false) this will return you a current session or null.
-		Cookie[] cookies = request.getCookies();
 
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("JSESSIONID")) {
-					System.out.println("JSESSIONID=" + cookie.getValue());
-					break;
-				}
-			}
-		}
-		
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			session.invalidate();
+			session.removeAttribute(COOKIE_NAME);
 		}
 	}
 

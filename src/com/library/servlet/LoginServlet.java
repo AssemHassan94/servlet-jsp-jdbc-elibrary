@@ -38,13 +38,10 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 
 		if (authenticationService.isAuthenticated(email, password)) {
-			Cookie cookie = authenticationService.addSession(request, email);
-			response.addCookie(cookie);
-			response.sendRedirect("/elibrary/home");
+			authenticationService.addSession(request, email);
+			response.sendRedirect("./");
 		}else {
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
-			rd.include(request, response);
-
+			response.sendRedirect("login");
 		}
 	}
 

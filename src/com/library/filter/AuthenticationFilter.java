@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.library.model.User;
+
 /**
  * Servlet Filter implementation class AuthenticationFilter
  */
@@ -38,22 +40,33 @@ public class AuthenticationFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 
-		//current session
+		// current session
 		HttpSession session = req.getSession(false);
-		//current url
-		String uri = req.getRequestURI();
 
-		boolean isLoginURL = uri.endsWith("LoginServlet");
-		boolean isLoginPage = uri.endsWith("login.html");
-		
-		if (session == null && !isLoginURL && !isLoginPage ) {
-			System.out.println("Unauthorized access request");
-			res.sendRedirect("login.html");
-		} else {
-			// pass the request along the filter chain
+		// current url
+		String uri = req.getServletPath();
+		System.out.println("current uri : " + uri);
+
+		boolean needLogin = uri.equals("/login") || uri.equals("/LoginServlet");
+
+		if (isAuthenticated(req) && needLogin) {
+			res.sendRedirect("./");
+			return;
+
+		} else if (isAuthenticated(req) || needLogin || isResources(uri)) {
 			chain.doFilter(request, response);
+			return;
 		}
 
+		res.sendRedirect("login");
+	}
+
+	private boolean isAuthenticated(HttpServletRequest request) {
+		return request.getSession(false) != null && request.getSession().getAttribute("email") != null;
+	}
+
+	private boolean isResources(String uri) {
+		return uri.startsWith("/css") || uri.startsWith("/img");
 	}
 
 }
