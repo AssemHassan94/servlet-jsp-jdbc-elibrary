@@ -6,7 +6,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 
-<title>Add Book</title>
+<title>Update Book</title>
 
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/4.5/examples/navbar-static/" />
@@ -36,8 +36,8 @@
 <body>
 	<div>
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-			<a class="navbar-brand" href="#"><img
-				src="img/library.png" width="50" height="50" alt="logo" /> </a>
+			<a class="navbar-brand" href="#"><img src="img/library.png"
+				width="50" height="50" alt="logo" /> </a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarCollapse" aria-controls="navbarCollapse"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -57,10 +57,10 @@
 			</div>
 		</nav>
 	</div>
-	<form action="./AddBook" method="GET">
+	<form action="./EditBook" method="POST">
 		<div class="container form-add">
 			<h1 class="h3 mb-2 font-weight-normal" style="color: #090e47">
-				Add Book</h1>
+				Edit Book</h1>
 			<div class="form-group">
 				<label for="exampleFormControlInput1">Book Title</label> <input
 					type="text" class="form-control" id="exampleFormControlInput1"

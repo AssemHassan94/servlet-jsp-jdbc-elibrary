@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +33,13 @@
 }
 </style>
 <!-- Custom styles for this template -->
-<link href="css/add-book.css" rel="stylesheet" />
+<link href="css/list.css" rel="stylesheet" />
 </head>
 <body>
 	<div>
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-			<a class="navbar-brand" href="#"><img
-				src="img/library.png" width="50" height="50" alt="logo" /> </a>
+			<a class="navbar-brand" href="#"><img src="img/library.png"
+				width="50" height="50" alt="logo" /> </a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarCollapse" aria-controls="navbarCollapse"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -57,23 +59,31 @@
 			</div>
 		</nav>
 	</div>
-	<form action="./AddBook" method="GET">
-		<div class="container form-add">
-			<h1 class="h3 mb-2 font-weight-normal" style="color: #090e47">
-				Add Book</h1>
-			<div class="form-group">
-				<label for="exampleFormControlInput1">Book Title</label> <input
-					type="text" class="form-control" id="exampleFormControlInput1"
-					placeholder="Book title" name="bookTitle" />
-			</div>
-			<div class="form-group">
-				<label for="exampleFormControlInput1">Author</label> <input
-					type="text" class="form-control" id="exampleFormControlInput1"
-					placeholder="author name" name="authorName" />
-			</div>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">
-				Submit</button>
-		</div>
-	</form>
+	<table class="table table-striped container">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Title</th>
+				<th scope="col">Author</th>
+				<th scope="col">Action</th>
+			</tr>
+		</thead>
+		<c:forEach items="${books}" var="book">
+			<tbody>
+
+				<tr>
+					<th scope="row">"${book.getId()}"</th>
+					<td>"${book.getTitle()}"</td>
+					<td>"${book.getAuthor()}"</td>
+					<td><a href="./UpdateBook?id=${book.getId()}">Edit</a> <a
+						href="./DeleteBook?id=${book.getId()}">Delete</a></td>
+				</tr>
+
+
+
+			</tbody>
+		</c:forEach>
+
+	</table>
 </body>
 </html>
