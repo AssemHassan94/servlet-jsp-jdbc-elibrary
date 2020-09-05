@@ -1,44 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
 
-<title>Login</title>
+<%@include file="parts/header.jsp" %>
 
-<link rel="canonical"
-	href="https://getbootstrap.com/docs/4.5/examples/sign-in/" />
-
-<!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet" />
-
-<style>
-.bd-placeholder-img {
-	font-size: 1.125rem;
-	text-anchor: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-@media ( min-width : 768px) {
-	.bd-placeholder-img-lg {
-		font-size: 3.5rem;
-	}
-}
-</style>
-<!-- Custom styles for this template -->
-<link type="text/css" href="css/main.css" rel="stylesheet" />
-</head>
-<body>
 	<div class="container-fluid container-background text-center">
 		<div class="row">
 			<div class="col-4 mx-auto" style="margin-top: 15rem">
 				<form class="form-signin"
-					action="${pageContext.request.contextPath}/LoginServlet"
+					action="./LoginServlet"
 					method="POST">
 					<img class="mb-4" src="img/library.png" alt="" width="100"
 						height="100" />
@@ -63,5 +30,6 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+	
+<%@include file="parts/footer.jsp" %>	
+	

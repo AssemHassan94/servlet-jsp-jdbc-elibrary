@@ -11,6 +11,9 @@
 		<filter-class>com.library.filter.RequestLoggingFilter</filter-class> </filter> 
 		<filter-mapping> <filter-name>AuthenticationFilter</filter-name> <url-pattern>/*</url-pattern> 
 		</filter-mapping> -->
+	<welcome-file-list>
+		<welcome-file>login</welcome-file>
+	</welcome-file-list>
 
 	<servlet>
 		<servlet-name>login</servlet-name>
@@ -22,34 +25,13 @@
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
 
-
 	<servlet>
 		<servlet-name>home</servlet-name>
 		<jsp-file>/jsp/main.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>home</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/home</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>addbook</servlet-name>
-		<jsp-file>/jsp/add-book.jsp</jsp-file>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>addbook</servlet-name>
-		<url-pattern>/add-book</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>updatebook</servlet-name>
-		<jsp-file>/jsp/update-book.jsp</jsp-file>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>updatebook</servlet-name>
-		<url-pattern>/update-book</url-pattern>
-	</servlet-mapping>
-
 
 </web-app>

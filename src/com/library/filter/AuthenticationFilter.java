@@ -50,15 +50,16 @@ public class AuthenticationFilter implements Filter {
 		boolean needLogin = uri.equals("/login") || uri.equals("/LoginServlet");
 
 		if (isAuthenticated(req) && needLogin) {
-			res.sendRedirect("./");
+			request.getRequestDispatcher("./jsp/main.jsp").forward(request, response);
 			return;
 
 		} else if (isAuthenticated(req) || needLogin || isResources(uri)) {
 			chain.doFilter(request, response);
 			return;
 		}
+		chain.doFilter(request, response);
 
-		res.sendRedirect("login");
+//		res.sendRedirect("login");
 	}
 
 	private boolean isAuthenticated(HttpServletRequest request) {
