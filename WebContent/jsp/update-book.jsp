@@ -1,3 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.library.model.Book"%>
+<%@ page import="java.util.Optional;"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 
-<title>Update Book</title>
+<title>Edit Book</title>
 
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/4.5/examples/navbar-static/" />
@@ -57,20 +62,27 @@
 			</div>
 		</nav>
 	</div>
-	<form action="./EditBook" method="POST">
+	<%
+		Optional<Book> book = (Optional<Book>) request.getAttribute("book");
+	%>
+	<form action="./UpdateBook" method="POST">
 		<div class="container form-add">
 			<h1 class="h3 mb-2 font-weight-normal" style="color: #090e47">
 				Edit Book</h1>
 			<div class="form-group">
 				<label for="exampleFormControlInput1">Book Title</label> <input
 					type="text" class="form-control" id="exampleFormControlInput1"
-					placeholder="Book title" name="bookTitle" />
+					placeholder="${book.getTitle()}" name="bookTitle" />
 			</div>
 			<div class="form-group">
 				<label for="exampleFormControlInput1">Author</label> <input
 					type="text" class="form-control" id="exampleFormControlInput1"
-					placeholder="author name" name="authorName" />
+					placeholder="${book.getAuthor()}" name="authorName" />
 			</div>
+			<%
+				request.setAttribute("bookId", "${book.getId()}");
+			%>
+
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
 				Submit</button>
 		</div>

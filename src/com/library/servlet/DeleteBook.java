@@ -26,7 +26,7 @@ public class DeleteBook extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		long id = Long.parseLong(request.getParameter("id"));
 		new BookDao().delete(id);
-		response.sendRedirect("/ListBook");
+		request.getRequestDispatcher("/ListBook").forward(request, response);
 
 	}
 

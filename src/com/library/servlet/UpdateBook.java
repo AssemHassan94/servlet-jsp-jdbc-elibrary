@@ -34,9 +34,10 @@ public class UpdateBook extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		long id = Long.parseLong(request.getParameter("id"));
 		Optional<Book> book = new BookDao().get(id);
+		System.out.println(book);
 		if (book.isPresent()) {
 			request.setAttribute("book", book);
-			request.getRequestDispatcher("/update-book").forward(request, response);
+			request.getRequestDispatcher("jsp/update-book.jsp").forward(request, response);
 		}
 	}
 
@@ -46,7 +47,8 @@ public class UpdateBook extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		long id = Long.parseLong(request.getParameter("id"));
+		long id = (long) request.getAttribute("bookId");
+
 		String title = request.getParameter("bookTitle");
 		String author = request.getParameter("authorName");
 		Book book = Book.builder().id(id).title(title).author(author).build();

@@ -31,7 +31,7 @@
 		<servlet-name>home</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>addbook</servlet-name>
 		<jsp-file>/jsp/add-book.jsp</jsp-file>
@@ -41,15 +41,7 @@
 		<servlet-name>addbook</servlet-name>
 		<url-pattern>/add-book</url-pattern>
 	</servlet-mapping>
-	<servlet>
-		<servlet-name>updatebook</servlet-name>
-		<jsp-file>/jsp/update-book.jsp</jsp-file>
-	</servlet>
 
-	<servlet-mapping>
-		<servlet-name>updatebook</servlet-name>
-		<url-pattern>/update-book</url-pattern>
-	</servlet-mapping>
 
 
 </web-app>
