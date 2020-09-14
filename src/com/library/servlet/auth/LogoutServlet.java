@@ -1,4 +1,4 @@
-package com.library.servlet;
+package com.library.servlet.auth;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import com.library.service.AuthenticationService;
 /**
  * Servlet implementation class LogoutServlet
  */
-@WebServlet("/LogoutServlet")
+@WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

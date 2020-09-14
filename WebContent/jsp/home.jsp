@@ -1,6 +1,7 @@
 <%@include file="parts/header.jsp"%>
+<%@include file="parts/nav-bar.jsp"%>
 
-test
-</body>
-</html>
+	
+
+
 <%@include file="parts/footer.jsp"%>

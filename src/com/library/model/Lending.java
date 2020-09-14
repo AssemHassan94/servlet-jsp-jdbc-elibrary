@@ -13,10 +13,7 @@ public class Lending {
     private long id;
     private long bookId;
     private long borrowerId;
-    private long staffId;
     private Date lendDate;
     private Date returnDate;
-    private boolean bookStatus;
-
-
+    private boolean status;
 }

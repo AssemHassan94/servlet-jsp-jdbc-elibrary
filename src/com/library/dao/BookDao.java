@@ -32,8 +32,6 @@ public class BookDao implements Dao<Book> {
                 book.setId(id);
                 book.setTitle(res.getString("title"));
                 book.setAuthor(res.getString("author"));
-
-
             }
         } catch (SQLException e) {
             e.printStackTrace();

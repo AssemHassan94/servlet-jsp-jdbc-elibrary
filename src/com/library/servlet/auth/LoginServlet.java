@@ -1,4 +1,4 @@
-package com.library.servlet;
+package com.library.servlet.auth;
 
 import java.io.IOException;
 
@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.library.service.AuthenticationService;
 
-//import com.library.service.AuthenticationService;
+
+import com.library.service.AuthenticationService;
 
 /**
  * Servlet implementation class LoginServlet
@@ -18,11 +20,11 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-//	private AuthenticationService authenticationService;
+	private AuthenticationService authenticationService;
 
 	public LoginServlet() {
 		super();
-//		authenticationService = AuthenticationService.getInstance();
+		authenticationService = AuthenticationService.getInstance();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,8 +38,8 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
-		if (true) {
-//			authenticationService.addSession(request, email);
+		if (this.authenticationService.isAuthenticated(email, password)) {
+			authenticationService.addSession(request, email);
 			response.sendRedirect("home");
 		}else {
 			response.sendRedirect("login");

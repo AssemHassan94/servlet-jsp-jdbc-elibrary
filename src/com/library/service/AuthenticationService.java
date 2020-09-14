@@ -2,13 +2,10 @@ package com.library.service;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.library.dao.LoginDao;
 
 public class AuthenticationService {
 
@@ -25,12 +22,11 @@ public class AuthenticationService {
 	}
 
 	public boolean isAuthenticated(String email, String password) {
-		return true;
 
-		// if (email.equals("a@a.com") && password.equals("test1234")) {
-//			return true;
-//		}
-//		return false;
+		 if (email.equals("admin") && password.equals("admin")) {
+			return true;
+		}
+		return false;
 	}
 
 	public void addSession(HttpServletRequest request, String email) {
